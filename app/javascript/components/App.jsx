@@ -7,7 +7,7 @@ import GithubProfiles from './githubProfiles/GithubProfiles';
 const Navbar = ({ currentUser }) => (
   <nav className="navbar navbar-expand-lg navbar-dark bg-primary shadow">
     <div className="container-fluid">
-      <Link className="navbar-brand" to="/">Webscrapper</Link>
+      <Link className="navbar-brand" to="/">Webscraper</Link>
       <button
         className="navbar-toggler"
         type="button"

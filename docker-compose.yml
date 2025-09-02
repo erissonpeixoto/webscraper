@@ -12,7 +12,7 @@ services:
     environment:
       RAILS_ENV: development
       NODE_ENV: development
-      DATABASE_URL: postgres://postgres:password@db:5432/webscrapper_development
+      DATABASE_URL: postgres://postgres:password@db:5432/webscraper_development
     volumes:
       - .:/rails:cached
       - ./config/master.key:/rails/config/master.key:rw
@@ -25,7 +25,7 @@ services:
     environment:
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: password
-      POSTGRES_DB: webscrapper_development
+      POSTGRES_DB: webscraper_development
     ports:
       - "5432:5432"
     volumes:
