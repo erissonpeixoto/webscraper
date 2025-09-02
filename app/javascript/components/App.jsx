@@ -6,7 +6,7 @@ import About from './About';
 const Navbar = ({ currentUser }) => (
   <nav className="navbar navbar-expand-lg navbar-dark bg-primary shadow">
     <div className="container-fluid">
-      <Link className="navbar-brand" to="/">Minha Aplicação Financeira</Link>
+      <Link className="navbar-brand" to="/">Webscrapper</Link>
       <button
         className="navbar-toggler"
         type="button"
