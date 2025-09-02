@@ -1,7 +1,4 @@
 # README
-
-Este projeto é uma aplicação Rails com React, baseada no repositório [rails-react](https://github.com/PivtoranisV/rails-react).
-
 ## Informações do Projeto
 
 ### Versão do Ruby
@@ -54,12 +51,12 @@ Este projeto é uma aplicação Rails com React, baseada no repositório [rails-
     ```
 2. Acesse a aplicação em [http://localhost:3000](http://localhost:3000).
 
-3. **Install React dependencies**
+3. **Instale dependências React**
 
 > [!WARNING]
-> You may get the error `ActionView::Template::Error (The asset ‘application.js’ is not present in the asset pipeline.`
+> Você pode receber o erro `ActionView::Template::Error (The asset ‘application.js’ is not present in the asset pipeline.`
 >
-> The error occurs because the assets were not compiled in development mode, `bin/rails assets:precompile`
+> O erro ocorre porque os recursos não foram compilados no modo de desenvolvimento, `bin/rails assets:precompile`
 
 # Comandos Docker Utilizados
 
