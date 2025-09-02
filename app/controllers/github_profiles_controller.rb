@@ -2,7 +2,16 @@ class GithubProfilesController < ApplicationController
   before_action :set_github_profile, only: %i[show update destroy]
 
   def index
-    @github_profiles = GithubProfile.all
+    if params[:name].present?
+      query = "%#{params[:name]}%"
+      @github_profiles = GithubProfile.where(
+        "name ILIKE :q OR github_username ILIKE :q OR organization ILIKE :q OR location ILIKE :q",
+        q: query
+      )
+    else
+      @github_profiles = GithubProfile.all
+    end
+
     render json: @github_profiles
   end
 
@@ -12,10 +21,9 @@ class GithubProfilesController < ApplicationController
 
   def create
     begin
-      scraper = GithubProfileScraper.new(github_profile_params[:github_url])
-      scraped_data = scraper.scrape
+      merged_params = github_profile_params_with_scraped_data
 
-      @github_profile = GithubProfile.new(github_profile_params.merge(scraped_data || {}))
+      @github_profile = GithubProfile.new(merged_params)
       if @github_profile.save
         render json: @github_profile, status: :created
       else
@@ -29,10 +37,9 @@ class GithubProfilesController < ApplicationController
 
   def update
     begin
-      scraper = GithubProfileScraper.new(github_profile_params[:github_url])
-      scraped_data = scraper.scrape
+      merged_params = github_profile_params_with_scraped_data
 
-      if @github_profile.update(github_profile_params.merge(scraped_data || {}))
+      if @github_profile.update(merged_params)
         render json: @github_profile
       else
         render json: @github_profile.errors, status: :unprocessable_entity
@@ -60,5 +67,11 @@ class GithubProfilesController < ApplicationController
       :name,
       :github_url
     )
+  end
+
+  def github_profile_params_with_scraped_data
+    scraper = GithubProfileScraper.new(github_profile_params[:github_url])
+    scraped_data = scraper.scrape
+    github_profile_params.merge(scraped_data || {})
   end
 end

@@ -1,17 +1,19 @@
 import React, { useEffect, useState } from 'react';
 
-const GithubProfileList = ({ onEdit, onShow }) => {
+const GithubProfileList = ({ onEdit, onShow, search }) => {
   const [profiles, setProfiles] = useState([]);
 
   const fetchProfiles = async () => {
-    const res = await fetch('/github_profiles');
+    const query = search ? `?name=${encodeURIComponent(search)}` : '';
+    const res = await fetch(`/github_profiles${query}`);
     const data = await res.json();
     setProfiles(data);
   };
 
   useEffect(() => {
     fetchProfiles();
-  }, []);
+    // eslint-disable-next-line
+  }, [search]);
 
   const handleDelete = async (id) => {
     const csrfToken = document.querySelector('meta[name="csrf-token"]')?.getAttribute('content');
