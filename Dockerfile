@@ -51,6 +51,7 @@ RUN bundle install && \
 # Install node modules
 COPY package.json yarn.lock ./
 RUN yarn install --immutable
+RUN npm install -g esbuild
 
 # Copy application code
 COPY . .

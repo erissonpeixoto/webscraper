@@ -15,6 +15,7 @@ services:
       DATABASE_URL: postgres://postgres:password@db:5432/webscraper_development
     volumes:
       - .:/rails:cached
+      - /rails/node_modules
       - ./config/master.key:/rails/config/master.key:rw
     depends_on:
       - db
@@ -35,9 +36,11 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
-    command: yarn build:watch
+      target: build
+    command: bash -c "yarn install && yarn build:watch"
     volumes:
       - .:/rails:cached
+      - /rails/node_modules
     depends_on:
       - app
 
