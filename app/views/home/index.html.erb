@@ -1,0 +1,3 @@
+<% if current_user %>
+	<div id="root" data-current-user='<%= raw(current_user.to_json(only: [:id, :email_address])) %>'></div>
+<% end %>

@@ -1,0 +1,45 @@
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      args:
+        RUBY_VERSION: 3.2.1
+        NODE_VERSION: 22.1.0
+        YARN_VERSION: 1.22.22
+    ports:
+      - "3000:3000"
+    environment:
+      RAILS_ENV: development
+      NODE_ENV: development
+      DATABASE_URL: postgres://postgres:password@db:5432/webscrapper_development
+    volumes:
+      - .:/rails:cached
+      - ./config/master.key:/rails/config/master.key:rw
+    depends_on:
+      - db
+    command: bash -c "rm -f /rails/tmp/pids/server.pid && bin/dev"
+
+  db:
+    image: postgres:14
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: webscrapper_development
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+  esbuild:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    command: yarn build:watch
+    volumes:
+      - .:/rails:cached
+    depends_on:
+      - app
+
+volumes:
+  postgres_data:

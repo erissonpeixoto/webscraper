@@ -1,0 +1,35 @@
+<div class="card mx-auto mt-5" style="max-width: 400px;">
+  <div class="card-body">
+    <h3 class="card-title text-center mb-4">Sign In</h3>
+
+    <% if flash[:alert] %>
+      <div class="alert alert-danger" role="alert">
+        <%= flash[:alert] %>
+      </div>
+    <% end %>
+
+    <% if flash[:notice] %>
+      <div class="alert alert-success" role="alert">
+        <%= flash[:notice] %>
+      </div>
+    <% end %>
+
+    <%= form_with url: session_path, class: "needs-validation", novalidate: true do |form| %>
+      <div class="mb-3">
+        <%= form.label :email_address, "Email Address", class: "form-label" %>
+        <%= form.email_field :email_address, class: "form-control", required: true, autofocus: true, autocomplete: "username", placeholder: "Enter your email address", value: params[:email_address] %>
+      </div>
+      <div class="mb-3">
+        <%= form.label :password, "Password", class: "form-label" %>
+        <%= form.password_field :password, class: "form-control", required: true, autocomplete: "current-password", placeholder: "Enter your password", maxlength: 72 %>
+      </div>
+      <div class="d-grid">
+        <%= form.submit "Sign in", class: "btn btn-primary" %>
+      </div>
+    <% end %>
+    <div class="text-center mt-3">
+      <%= link_to "Esqueceu a senha?", new_password_path, class: "text-decoration-none d-block" %>
+      <%= link_to "Crie sua conta", new_registration_path, class: "text-decoration-none d-block mt-2" %>
+    </div>
+  </div>
+</div>
