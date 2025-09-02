@@ -81,18 +81,18 @@
   docker compose down
   ```
 
-### 4. `docker compose logs web`
-- **Resumo**: Exibe os logs do serviço `web` definido no `docker-compose.yml`. É útil para verificar o que está acontecendo dentro do container ou identificar erros.
+### 4. `docker compose logs app`
+- **Resumo**: Exibe os logs do serviço `app` definido no `docker-compose.yml`. É útil para verificar o que está acontecendo dentro do container ou identificar erros.
 - **Exemplo**:
   ```bash
-  docker compose logs web
+  docker compose logs app
   ```
 
-### 5. `docker compose exec web bash`
-- **Resumo**: Executa um comando dentro do container em execução, no caso `web`. No exemplo, é aberto um shell interativo (`bash`) dentro do container, permitindo que você execute comandos dentro do ambiente do container.
+### 5. `docker compose exec app bash`
+- **Resumo**: Executa um comando dentro do container em execução, no caso `app`. No exemplo, é aberto um shell interativo (`bash`) dentro do container, permitindo que você execute comandos dentro do ambiente do container.
 - **Exemplo**:
   ```bash
-  docker compose exec web bash
+  docker compose exec app bash
   ```
 
 ### 6. `ps aux | grep rails`
@@ -109,20 +109,20 @@
   docker compose build
   ```
 
-### 8. `docker compose run web rails db:create`
-- **Resumo**: Executa um comando específico no container de um serviço. No exemplo, o comando `rails db:create` é executado no serviço `web`, criando o banco de dados do Rails. Este comando é útil para rodar tarefas específicas dentro do container.
+### 8. `docker compose run app rails db:create`
+- **Resumo**: Executa um comando específico no container de um serviço. No exemplo, o comando `rails db:create` é executado no serviço `app`, criando o banco de dados do Rails. Este comando é útil para rodar tarefas específicas dentro do container.
 - **Exemplo**:
   ```bash
-  docker compose run web rails db:create
+  docker compose run app rails db:create
   ou
-  docker compose run web bundle exec rails db:create
+  docker compose run app bundle exec rails db:create
   ```
 
-### 9. `docker compose run web rails db:migrate`
-- **Resumo**: Executa as migrações do banco de dados no container `web`. O comando aplica as mudanças no banco de dados de acordo com os arquivos de migração do Rails.
+### 9. `docker compose run app rails db:migrate`
+- **Resumo**: Executa as migrações do banco de dados no container `app`. O comando aplica as mudanças no banco de dados de acordo com os arquivos de migração do Rails.
 - **Exemplo**:
   ```bash
-  docker compose run web rails db:migrate
+  docker compose run app rails db:migrate
   ou
-  docker compose run web bundle exec rails db:migrate
+  docker compose run app bundle exec rails db:migrate
   ```
