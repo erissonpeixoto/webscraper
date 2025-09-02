@@ -47,7 +47,7 @@ const GithubProfileList = ({ onEdit, onShow, search }) => {
                   <td className="fw-semibold">{profile.name}</td>
                   <td>
                     <a href={profile.github_url} target="_blank" rel="noopener noreferrer">
-                      {profile.github_url}
+                      {profile.github_url_short}
                     </a>
                   </td>
                   <td className="text-end">

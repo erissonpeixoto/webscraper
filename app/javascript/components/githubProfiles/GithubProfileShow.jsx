@@ -37,7 +37,7 @@ const GithubProfileShow = ({ profileId, onBack }) => {
           />
           <h3 className="mb-1">{profile.name}</h3>
           <a href={profile.github_url} target="_blank" rel="noopener noreferrer" className="d-block mb-2">
-            {profile.github_url}
+            {profile.github_url_short}
           </a>
           <div className="row mb-3">
             <div className="col-6 text-end fw-bold">Usuário Github:</div>

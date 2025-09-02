@@ -5,7 +5,10 @@ Este projeto é uma aplicação Rails com React, baseada no repositório [rails-
 ## Informações do Projeto
 
 ### Versão do Ruby
-- **Ruby**: 3.0.2 (ou a versão especificada no arquivo `.ruby-version`)
+- **Ruby**: 3.2.1 (ou a versão especificada no arquivo `.ruby-version`)
+
+### Versão do Rails
+- **Rails**: 8.0.2
 
 ### Banco de Dados
 - **Banco de Dados**: PostgreSQL (configuração padrão para projetos Rails modernos)
@@ -50,6 +53,13 @@ Este projeto é uma aplicação Rails com React, baseada no repositório [rails-
     docker compose up --build
     ```
 2. Acesse a aplicação em [http://localhost:3000](http://localhost:3000).
+
+3. **Install React dependencies**
+
+> [!WARNING]
+> You may get the error `ActionView::Template::Error (The asset ‘application.js’ is not present in the asset pipeline.`
+>
+> The error occurs because the assets were not compiled in development mode, `bin/rails assets:precompile`
 
 # Comandos Docker Utilizados
 
@@ -119,19 +129,3 @@ Este projeto é uma aplicação Rails com React, baseada no repositório [rails-
   ou
   docker compose run web bundle exec rails db:migrate
   ```
-
-### 10. `docker compose exec web curl http://localhost:3000`
-- **Resumo**: Executa um comando `curl` dentro do container para verificar se a aplicação está acessível na porta 3000 dentro do próprio container. Pode ser útil para verificar se o servidor Rails está respondendo corretamente.
-- **Exemplo**:
-  ```bash
-  docker compose exec web curl http://localhost:3000
-  ```
-
-## Base do Projeto
-
-Este projeto foi inspirado no repositório rails-react, que combina o poder do Rails no backend com a flexibilidade do React no frontend.
-
-## Observações
-
-- Certifique-se de verificar os arquivos `Gemfile` e `package.json` para mais detalhes sobre as dependências.
-- Consulte a documentação oficial do Rails e do React para mais informações sobre como personalizar o projeto.

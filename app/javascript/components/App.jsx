@@ -1,7 +1,6 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 import Home from './Home';
-import About from './About';
 import GithubProfiles from './githubProfiles/GithubProfiles';
 
 const Navbar = ({ currentUser }) => (
@@ -23,9 +22,6 @@ const Navbar = ({ currentUser }) => (
         <ul className="navbar-nav me-auto mb-2 mb-lg-0">
           <li className="nav-item">
             <Link className="nav-link" to="/">Home</Link>
-          </li>
-          <li className="nav-item">
-            <Link className="nav-link" to="/about">About</Link>
           </li>
           <li className="nav-item">
             <Link className="nav-link" to="/github_profiles">Perfis Github</Link>
@@ -66,7 +62,6 @@ const App = ({ currentUser }) => {
       <div className="container mt-5">
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/about" element={<About />} />
           <Route path="/github_profiles" element={<GithubProfiles />} />
         </Routes>
       </div>

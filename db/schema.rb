@@ -10,9 +10,25 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2025_06_11_150230) do
+ActiveRecord::Schema[8.0].define(version: 2025_09_02_200918) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pg_catalog.plpgsql"
+
+  create_table "github_profiles", force: :cascade do |t|
+    t.string "name"
+    t.string "github_url"
+    t.string "github_username"
+    t.integer "followers"
+    t.integer "following"
+    t.integer "stars"
+    t.integer "contributions"
+    t.string "avatar_url"
+    t.string "organization"
+    t.string "location"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "github_url_short"
+  end
 
   create_table "sessions", force: :cascade do |t|
     t.bigint "user_id", null: false
