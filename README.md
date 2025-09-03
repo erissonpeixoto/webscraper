@@ -1,5 +1,5 @@
 # README
-## Informações do Projeto
+## Informações técnicas do Projeto
 
 - **Versão do Ruby**: 3.2.1 (ou a versão especificada no arquivo `.ruby-version`)
 - **Versão do Rails**: 8.0.2
@@ -7,6 +7,18 @@
 - **Yarn**: 1.22.19 (ou a versão especificada no ambiente)
 - **Node.js**: 18.x (ou a versão especificada no ambiente)
 - **React**: 17.x (ou a versão especificada no `package.json`)
+
+## Informações do Projeto - Indexador de Perfis do Github
+**O projeto consiste em um scraper de perfis do Github.**
+**Funcionalidades**:
+- Tela de cadastro e login de usuário com autenticação nativa do Rails 8.
+- Tela de cadastro de perfil do Github (scraper síncrono)
+- Tela de edição de perfil do Github apenas com os campos editáveis: nome e url do perfil. Ao salvar, será escaneado novamente para atualizar dados.
+- Tela de visualização do perfil do Github com todos as informações
+- Exclusão de perfis de Github
+- Listagem de perfis com as informações do nome e endereço encurtado e os botões de ações para visualizar, editar e excluir.
+- Implementação nativa de um encurtador de url, usando apenas os recursos do rails
+- Filtro de busca pelos campos nome, usuário do Github, organização ou localização
 
 ## Dependências e Configuração
 
@@ -32,7 +44,7 @@
     ```
 3. Acesse a aplicação em [http://localhost:3000](http://localhost:3000).
 
-## Como Rodar o Projeto com Docker
+## Como Rodar o Projeto com Docker (recomendado)
 
 1. Inicie o projeto com o comando:
     ```bash
