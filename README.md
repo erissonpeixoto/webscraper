@@ -1,22 +1,11 @@
 # README
 ## Informações do Projeto
 
-### Versão do Ruby
-- **Ruby**: 3.2.1 (ou a versão especificada no arquivo `.ruby-version`)
-
-### Versão do Rails
-- **Rails**: 8.0.2
-
-### Banco de Dados
+- **Versão do Ruby**: 3.2.1 (ou a versão especificada no arquivo `.ruby-version`)
+- **Versão do Rails**: 8.0.2
 - **Banco de Dados**: PostgreSQL (configuração padrão para projetos Rails modernos)
-
-### Gerenciador de Pacotes Frontend
 - **Yarn**: 1.22.19 (ou a versão especificada no ambiente)
-
-### Versão do Node.js
 - **Node.js**: 18.x (ou a versão especificada no ambiente)
-
-### Framework Frontend
 - **React**: 17.x (ou a versão especificada no `package.json`)
 
 ## Dependências e Configuração
@@ -51,7 +40,7 @@
     ```
 2. Acesse a aplicação em [http://localhost:3000](http://localhost:3000).
 
-3. **Instale dependências React**
+3. Instale dependências React
 
 > [!WARNING]
 > Você pode receber o erro `ActionView::Template::Error (The asset ‘application.js’ is not present in the asset pipeline.`
@@ -127,7 +116,7 @@
   docker compose run app bundle exec rails db:migrate
   ```
 
-### 10. `docker compose run --rm app bin/rails spec`
+### 10. `docker compose run --rm test`
 - **Resumo**: Executa os testes (rspec) no container `app`.
 - **Exemplo**:
   ```bash
