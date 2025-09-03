@@ -47,6 +47,16 @@
 >
 > O erro ocorre porque os recursos não foram compilados no modo de desenvolvimento, `bin/rails assets:precompile`
 
+## Como Rodar os testes com Docker
+
+Executa os testes (rspec) no container `app`:
+  ```bash
+  docker compose run --rm test
+  ou
+  docker compose exec app bash
+  bundle exec rspec spec/
+  ```
+
 # Comandos Docker Utilizados
 
 ### 1. `docker compose up`
@@ -114,14 +124,4 @@
   docker compose run app rails db:migrate
   ou
   docker compose run app bundle exec rails db:migrate
-  ```
-
-### 10. `docker compose run --rm test`
-- **Resumo**: Executa os testes (rspec) no container `app`.
-- **Exemplo**:
-  ```bash
-  docker compose run --rm test
-  ou
-  docker compose exec app bash
-  bundle exec rspec spec/
   ```
