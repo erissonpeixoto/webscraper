@@ -37,7 +37,7 @@ const GithubProfileList = ({ onEdit, onShow, search }) => {
             <thead className="table-light">
               <tr>
                 <th scope="col">Nome</th>
-                <th scope="col">Endereço Github</th>
+                <th scope="col">Endereço Github (encurtado)</th>
                 <th scope="col" className="text-end">Ações</th>
               </tr>
             </thead>
@@ -46,8 +46,8 @@ const GithubProfileList = ({ onEdit, onShow, search }) => {
                 <tr key={profile.id}>
                   <td className="fw-semibold">{profile.name}</td>
                   <td>
-                    <a href={profile.github_url} target="_blank" rel="noopener noreferrer">
-                      {profile.github_url_short}
+                    <a href={profile.short_github_url} target="_blank" rel="noopener noreferrer">
+                      {profile.short_github_url}
                     </a>
                   </td>
                   <td className="text-end">

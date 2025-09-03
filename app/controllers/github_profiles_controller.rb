@@ -12,11 +12,11 @@ class GithubProfilesController < ApplicationController
       @github_profiles = GithubProfile.all
     end
 
-    render json: @github_profiles
+    render json: @github_profiles.as_json(methods: [ :short_github_url ])
   end
 
   def show
-    render json: @github_profile
+    render json: @github_profile.as_json(methods: [ :short_github_url ])
   end
 
   def create
@@ -59,6 +59,7 @@ class GithubProfilesController < ApplicationController
 
   def set_github_profile
     @github_profile = GithubProfile.find(params[:id])
+    p @github_profile
     head :not_found unless @github_profile
   end
 

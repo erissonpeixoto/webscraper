@@ -1,13 +1,15 @@
 class GithubProfile < ApplicationRecord
   validates :github_username, :name, presence: true
 
-  before_save :shorten_github_url
+  before_save :generate_github_url_short
+
+  def short_github_url
+    Rails.application.routes.url_helpers.short_url(github_url_short, only_path: true)
+  end
 
   private
 
-  def shorten_github_url
-    return if github_url.blank?
-
-    self.github_url_short = github_url.split('/').last
+  def generate_github_url_short
+    self.github_url_short ||= SecureRandom.urlsafe_base64(6)
   end
 end
