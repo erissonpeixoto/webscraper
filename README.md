@@ -46,7 +46,8 @@
 > Você pode receber o erro `ActionView::Template::Error (The asset ‘application.js’ is not present in the asset pipeline.`
 >
 > O erro ocorre porque os recursos não foram compilados no modo de desenvolvimento, `bin/rails assets:precompile`
-
+>
+> Caso receba erros de permissão as pastas tmp log ou node_modules, pode dar permissão ex: `chmod -R 0777 node_modules tmp log`
 ## Como Rodar os testes com Docker
 
 Executa os testes (rspec) no container `app`:
