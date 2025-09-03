@@ -1,4 +1,6 @@
 class RedirectsController < ApplicationController
+  allow_unauthenticated_access only: [ :show ]
+
   def show
     github_profile = GithubProfile.find_by(github_url_short: params[:short_code])
     if github_profile&.github_url.present?

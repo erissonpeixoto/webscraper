@@ -126,3 +126,13 @@
   ou
   docker compose run app bundle exec rails db:migrate
   ```
+
+### 10. `docker compose run --rm app bin/rails spec`
+- **Resumo**: Executa os testes (rspec) no container `app`.
+- **Exemplo**:
+  ```bash
+  docker compose run --rm test
+  ou
+  docker compose exec app bash
+  bundle exec rspec spec/
+  ```

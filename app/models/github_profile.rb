@@ -1,5 +1,5 @@
 class GithubProfile < ApplicationRecord
-  validates :github_username, :name, presence: true
+  validates :github_url, :name, presence: true
 
   before_save :generate_github_url_short
 

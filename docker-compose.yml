@@ -43,6 +43,26 @@ services:
       - /rails/node_modules
     depends_on:
       - app
+  test:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      args:
+        RUBY_VERSION: 3.2.1
+        NODE_VERSION: 22.1.0
+        YARN_VERSION: 1.22.22
+    environment:
+      RAILS_ENV: test
+      NODE_ENV: test
+      DATABASE_URL: postgres://postgres:password@db:5432/webscraper_test
+    volumes:
+      - .:/rails:cached
+      - /rails/node_modules
+      - ./config/master.key:/rails/config/master.key:rw
+    depends_on:
+      - db
+    command: ["bundle", "exec", "rspec"]
+
 
 volumes:
   postgres_data:
