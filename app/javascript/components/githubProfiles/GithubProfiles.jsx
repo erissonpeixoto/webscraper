@@ -28,7 +28,7 @@ const GithubProfiles = () => {
 
   return (
     <div className="container mt-5">
-      <h1 className="text-primary mb-4">Perfis Github</h1>
+      <h3 className="text-primary mb-4">Perfis Github</h3>
       <div className="mb-4">
         <GithubProfileForm
           profile={editing}

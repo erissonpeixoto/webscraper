@@ -63,8 +63,9 @@ RSpec.describe GithubProfileScraper do
         allow(Rails.logger).to receive(:error)
       end
 
-      it "returns nil and logs the error" do
-        expect(scraper.scrape).to be_nil
+      it "logs the error and raises an error" do
+        expect { scraper.scrape }
+          .to raise_error(StandardError, "Failed to scrape GitHub profile: timeout")
         expect(Rails.logger).to have_received(:error).with("timeout")
       end
     end

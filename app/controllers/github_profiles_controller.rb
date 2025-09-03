@@ -31,7 +31,7 @@ class GithubProfilesController < ApplicationController
       end
     rescue StandardError => e
       Rails.logger.error(e.message)
-      render json: { error: 'Failed to create GitHub profile' }, status: :unprocessable_entity
+      render json: { error: "Failed to create GitHub profile" }, status: :unprocessable_entity
     end
   end
 
@@ -46,7 +46,7 @@ class GithubProfilesController < ApplicationController
       end
     rescue StandardError => e
       Rails.logger.error(e.message)
-      render json: { error: 'Failed to update GitHub profile' }, status: :unprocessable_entity
+      render json: { error: "Failed to update GitHub profile" }, status: :unprocessable_entity
     end
   end
 

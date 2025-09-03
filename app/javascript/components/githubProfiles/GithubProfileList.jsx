@@ -25,7 +25,7 @@ const GithubProfileList = ({ onEdit, onShow, search }) => {
     <div className="container py-4">
       <div className="d-flex align-items-center mb-4">
         <i className="bi bi-person-lines-fill text-primary" style={{ fontSize: '2rem' }}></i>
-        <h2 className="ms-2 mb-0">Perfis Github</h2>
+        <h4 className="ms-2 mb-0">Listagem</h4>
       </div>
       {profiles.length === 0 ? (
         <div className="alert alert-info text-center">
